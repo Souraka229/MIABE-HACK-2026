@@ -126,3 +126,4 @@ DiasporaConnect contribue aux Objectifs de Developpement Durable :
 - **ODD 1** - Fin de la pauvrete : Reduire les frais de transfert pour maximiser l'impact de chaque envoi
 - **ODD 8** - Travail decent : Faciliter les investissements de la diaspora pour creer des emplois locaux
 - **ODD 10** - Inegalites reduites : L'ODD 10 fixe un plafond de 3% de frais d'ici 2030, DiasporaConnect propose 0.8%
+# MIABE-HACK-2026

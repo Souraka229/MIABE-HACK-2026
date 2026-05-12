@@ -1,0 +1,30 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=MIABE-HACK-2026
+            -Dsonar.organization=MIABE-HACK-2026
+            -Dsonar.sources=.
+            -Dsonar.exclusions=**/node_modules/**,**/*.log,**/dist/**,**/build/**,.git/**
+            -Dsonar.html.fileExtensions=html
+            -Dsonar.js.fileExtensions=js,html

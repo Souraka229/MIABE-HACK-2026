@@ -3,7 +3,7 @@
    Backend API integration with realistic mock fallbacks
    ============================================================ */
 
-const API_BASE = ''; // Set to backend URL when deployed, e.g. 'https://api.diasporaconnect.app'
+const API_BASE = 'http://localhost:3000'; // Set to backend URL when deployed, e.g. 'https://api.diasporaconnect.app'
 
 // ===================== EXCHANGE RATES =====================
 const defaultRates = { USD: 592, EUR: 655.957, GBP: 746, CAD: 435 };

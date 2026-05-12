@@ -1,4 +1,4 @@
-# MIABE-HACK-2026 - DiasporaConnect
+# LumniX - DiasporaConnect
 
 <p align="center">
   <img src="https://img.shields.io/badge/MIABE-Hackathon-2026-orange" alt="MIABE 2026">
@@ -53,7 +53,7 @@
 ## 📂 Structure du Projet
 
 ```
-MIABE-HACK-2026/
+LumniX/
 ├── index.html              # Page d'accueil principale
 ├── app.html             # Prototype interactif
 ├── app-styles.css       # Styles CSS
@@ -107,8 +107,8 @@ MIABE-HACK-2026/
 
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/Souraka229/MIABE-HACK-2026.git
-cd MIABE-HACK-2026
+git clone https://github.com/Souraka229/LumniX.git
+cd LumniX
 
 # 2. Installer les dépendances backend
 cd backend

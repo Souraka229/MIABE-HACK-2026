@@ -1,92 +1,135 @@
-# DiasporaConnect
+# MIABE-HACK-2026 - DiasporaConnect
+
+<p align="center">
+  <img src="https://img.shields.io/badge/MIABE-Hackathon-2026-orange" alt="MIABE 2026">
+  <img src="https://img.shields.io/badge/Blockchain-Polygon-blue" alt="Polygon">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+</p>
 
 ## Description
 
-DiasporaConnect est une plateforme innovante de transfert de fonds internationaux, construite sur la blockchain Polygon, permettant a la diaspora africaine d'envoyer de l'argent vers le Benin avec des frais reduits a 0.8% et une reception en Mobile Money (MTN MoMo, Moov Money) en moins de 30 minutes.
+**DiasporaConnect** est une plateforme innovante de transfert de fonds internationaux construite sur la blockchain Polygon, permettant à la diaspora africaine d'envoyer de l'argent vers le Bénin avec des frais réduits à **0.8%** et une réception en Mobile Money (MTN MoMo, Moov Money) en moins de 30 minutes.
 
-## Probleme resolu
+## 🚀 Fonctionnalités Principales
 
-Les transferts d'argent vers l'Afrique sont domines par des services comme Western Union ou MoneyGram qui facturent entre 7% et 15% de frais, avec des delais de 1 a 5 jours. Pour un envoi de 200 USD, ces frais representent entre 14 et 30 USD de perte. DiasporaConnect reduit ces frais a seulement 0.8% (soit 1,60 USD pour 200 USD), faisant economiser jusqu'a 20 650 XOF par transfert aux familles beneficiaires.
+### Pour les Expediteurs (Diaspora)
+- 📱 **Authentification sans mot de passe** par OTP SMS
+- 💰 **Calcul automatique des frais** et conversion en temps réel
+- ⛓️ **Transfert sécurisé** via smart contract Polygon
+- 📋 **Suivi en temps réel** avec ID de transaction
 
-## Solution
+### Pour les Bénéficiaires (Bénin)
+- 📥 **Recherche de transfert** par téléphone ou ID
+- 💵 **Retrait en Mobile Money** (MTN MoMo / Moov Money)
+- 📄 **Paiement de factures** (SBEE, SONEB, MTN, Canal+)
+- 📱 **Paiement marchand** par QR Code
 
-DiasporaConnect propose deux portails complementaires :
+### Points Forts
+- ✅ **Frais quasi nuls**: 0.8% contre 7-15% chez les concurrents
+- ⚡ **Rapidité**: Moins de 30 minutes de bout en bout  
+- 🔒 **Sécurité**: Chiffrement AES-256 + blockchain Polygon
+- 📱 **PWA**: Installation possible sur mobile, fonctionnent hors ligne
 
-### Portail Diaspora (Expediteur)
-- Formulaire d'envoi avec calcul automatique des frais et conversion en temps reel
-- Authentification passwordless par OTP (SMS)
-- Transfert securise via smart contract sur Polygon
-- Confirmation instantanee avec ID de transaction et suivi
-
-### Portail Benin (Destinataire)
-- Recherche de transfert par numero de telephone ou ID de transaction
-- Retrait en Mobile Money (MTN MoMo / Moov Money)
-- Paiement de factures (SBEE, SONEB, MTN, Canal+)
-- Paiement marchand par QR Code
-
-### Points forts
-- **Frais quasi nuls** : 0.8% contre 7-15% chez les concurrents
-- **Rapidite** : Moins de 30 minutes de bout en bout
-- **Securite** : Chiffrement AES-256 + blockchain Polygon
-- **Simplicite** : Pas de compte bancaire requis, reception via Mobile Money
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 - HTML5 / CSS3 / JavaScript Vanilla
 - Lucide Icons
 - Design responsive (mobile-first)
-- API integration avec fallback mock pour demo hors-ligne
+- **PWA** avec Service Worker
 
 ### Backend
 - Node.js + Express.js
-- Prisma ORM (SQLite en dev, PostgreSQL en production)
-- JSON Web Tokens (JWT) pour l'authentification
-- Twilio pour les SMS OTP
+- Prisma ORM (SQLite dev, PostgreSQL prod)
+- JSON Web Tokens (JWT)
+- Twilio (SMS OTP)
 
 ### Blockchain
 - Solidity (Smart Contracts)
 - Polygon Amoy Testnet
 - Hardhat (dev, test, deploy)
-- ethers.js pour les interactions blockchain
-- MockUSDC (stablecoin de test)
-- DiasporaTransfer.sol (verrouillage et liberation des fonds)
+- ethers.js
 
-## Comment lancer en local
+## 📂 Structure du Projet
 
-### Prerequis
+```
+MIABE-HACK-2026/
+├── index.html              # Page d'accueil principale
+├── app.html             # Prototype interactif
+├── app-styles.css       # Styles CSS
+├── app-script.js        # Logique JavaScript
+├── manifest.json        # Manifeste PWA
+├── sw.js              # Service Worker PWA
+├── README.md          # Ce fichier
+│
+├── backend/            # Serveur Node.js
+│   ├── src/
+│   │   ├── index.js          # Point d'entrée
+│   │   ├── prismaClient.js   # Client Prisma
+│   │   ├── middleware/
+│   │   │   └── auth.js       # Auth JWT
+│   │   ├── routes/
+│   │   │   ├── auth.js       # Inscription/OTP
+│   │   │   ├── transfer.js   # Transferts
+│   │   │   ├── withdraw.js   # Retraits
+│   │   │   ├── rates.js     # Taux change
+│   │   │   └── transactions.js # Historique
+│   │   └── services/
+│   │       ├── blockchain.js # Interactions Polygon
+│   │       ├── coingecko.js  # API taux
+│   │       └── twilio.js     # SMS OTP
+│   └── prisma/
+│       └── schema.prisma     # Schema BDD
+│
+├── contracts/          # Smart Contracts
+│   ├── contracts/
+│   │   ├── DiasporaTransfer.sol  # Contrat principal
+│   │   └── MockUSDC.sol        # Stablecoin test
+│   ├── scripts/
+│   │   ├── deploy.js         # Déploiement
+│   │   ├── faucet.js        # Faucet testnet
+│   │   ├── fund-alice-local.js
+│   │   └── fund-alice.js
+│   └── test/
+│       └── DiasporaTransfer.test.js
+│
+└── assets/
+    └── favicon.svg     # Icône
+```
+
+## 🚦 Pour Commencer
+
+### Prérequis
 - Node.js v22+
 - npm ou yarn
 
-### 1. Cloner le depot
+### Installation
 
 ```bash
-git clone -b stj_branch https://github.com/Souraka229/disporaconnect-mbh2026.git
-cd disporaconnect-mbh2026
-```
+# 1. Cloner le dépôt
+git clone https://github.com/Souraka229/MIABE-HACK-2026.git
+cd MIABE-HACK-2026
 
-### 2. Lancer le backend
-
-```bash
+# 2. Installer les dépendances backend
 cd backend
 npm install
 npx prisma db push
 npx prisma generate
+
+# 3. Lancer le backend
 npm start
+# Serveur sur http://localhost:3000
 ```
 
-Le serveur sera accessible sur http://localhost:3000
-
-### 3. Lancer le frontend
-
-Ouvrez `index.html` dans votre navigateur ou utilisez un serveur statique :
+### Lancer le Frontend
 
 ```bash
-# Depuis la racine du projet
+# Depuis la racine
 npx serve .
+# ou simplement ouvrir index.html dans le navigateur
 ```
 
-### 4. Blockchain locale (optionnel)
+### Blockchain Locale (Optionnel)
 
 ```bash
 cd contracts
@@ -95,9 +138,9 @@ npx hardhat node
 npx hardhat run scripts/deploy.js --network localhost
 ```
 
-## Variables d'environnement
+## 📝 Variables d'Environnement
 
-Creez un fichier `.env` dans le dossier `backend/` :
+Créez un fichier `.env` dans `backend/`:
 
 ```env
 DATABASE_URL="file:./dev.db"
@@ -111,19 +154,41 @@ TWILIO_AUTH_TOKEN=""
 TWILIO_PHONE_NUMBER=""
 ```
 
-## Equipe
+## 🔌 API Endpoints
 
-Projet developpe dans le cadre du **MIABE Hackathon 2026** - Benin.
+| Méthode | Route | Description |
+|--------|-------|-------------|
+| POST | `/api/auth/register` | Inscription/Connexion OTP |
+| POST | `/api/auth/verify-otp` | Vérification OTP & JWT |
+| POST | `/api/transfer` | Initier un transfert |
+| POST | `/api/withdraw` | Retirer des fonds |
+| GET | `/api/rates` | Taux de change |
+| GET | `/api/transactions` | Historique transferts |
 
-## Lien prototype
+Voir `API_FRONTEND_DOCS.md` pour la documentation complète.
 
-- **Prototype interactif** : https://diaspora-connect-ayaxntwu.devinapps.com/
-- **Code source** : https://github.com/Souraka229/disporaconnect-mbh2026.git
+## 🎯 Objectifs de Développement Durable
 
-## MIABE Hackathon 2026
+DiasporaConnect contribue aux :
 
-DiasporaConnect contribue aux Objectifs de Developpement Durable :
-- **ODD 1** - Fin de la pauvrete : Reduire les frais de transfert pour maximiser l'impact de chaque envoi
-- **ODD 8** - Travail decent : Faciliter les investissements de la diaspora pour creer des emplois locaux
-- **ODD 10** - Inegalites reduites : L'ODD 10 fixe un plafond de 3% de frais d'ici 2030, DiasporaConnect propose 0.8%
-# MIABE-HACK-2026
+- **ODD 1** - Fin de la pauvreté : Réduire les frais de transfert
+- **ODD 8** - Travail décent : Faciliter les investissements diaspora
+- **ODD 10** - Inégalités réduites : Frais 0.8% vs 3% objectif 2030
+
+## 👥 Équipe
+
+Projet développé pour le **MIABE Hackathon 2026** - Béninin.
+
+## 📜 Licence
+
+MIT License
+
+## 🔗 Liens
+
+- **Prototype**: https://diaspora-connect-ayaxntwu.devinapps.com/
+- **Documentation API**: Voir `API_FRONTEND_DOCS.md`
+- **Doc Technique Blockchain**: Voir `DiasporaConnect_Technique_Blockchain.docx`
+
+---
+
+<p align="center">Fait avec ❤️ pour la diaspora africaine</p>

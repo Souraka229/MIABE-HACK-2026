@@ -6,7 +6,7 @@
 // Pour deployment Vercel: utiliser 'https://diasporaconnect-api.vercel.app'
 // Pour local: utiliser 'http://localhost:3000'
 // Laissez vide '' pour utiliser les mocks integres
-const API_BASE = ''; // Laissez vide pour mode demo avec mocks
+const API_BASE = 'http://localhost:3000'; // Backend API URL
 
 // ===================== EXCHANGE RATES =====================
 const defaultRates = { USD: 592, EUR: 655.957, GBP: 746, CAD: 435 };

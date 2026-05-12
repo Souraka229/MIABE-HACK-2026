@@ -21,10 +21,3 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: .
-          args: >
-            -Dsonar.projectKey=MIABE-HACK-2026
-            -Dsonar.organization=MIABE-HACK-2026
-            -Dsonar.sources=.
-            -Dsonar.exclusions=**/node_modules/**,**/*.log,**/dist/**,**/build/**,.git/**
-            -Dsonar.html.fileExtensions=html
-            -Dsonar.js.fileExtensions=js,html

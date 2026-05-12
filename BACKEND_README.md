@@ -130,6 +130,42 @@ Si blockchain non disponible:
 4. **Ajouter** verification KYC
 5. **Integrer** MTN MoMo / Moov API
 
+## Smart Contract
+
+### Fichiers
+```
+contracts/
+├── contracts/
+│   ├── DiasporaTransfer.sol  # Contrat principal
+│   └── MockUSDC.sol      # Token USDC mock
+├── scripts/
+│   └── deploy.js        # Script de deploiement
+└── test/
+    └── Transfer.js    # Tests
+```
+
+### DiasporaTransfer.sol
+```solidity
+// Fonctionnalites:
+// - transferToBenin() - Transfert vers Benin
+// - withdraw() - Retrait vers Mobile Money
+// - payBill() - Paiement factures
+// - Frais: 0.8%
+```
+
+### Commandes
+```bash
+# Compile
+npx hardhat compile
+
+# Deploy local
+npx hardhat node
+npx hardhat run scripts/deploy.js --network localhost
+
+# Test
+npx hardhat test
+```
+
 ## Commandes Utiles
 
 ```bash
